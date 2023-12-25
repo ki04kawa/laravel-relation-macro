@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>クエリ パフォーマンス測定</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -52,6 +52,11 @@
                                         <a href="{{ route('top', ['type'=>'select']) }}">select+whereInの測定</a>
                                     </h3>
                                     time : {{ $selectTime ?? '---' }}ミリ秒
+                                </div>
+                                <div class="mt-4">
+                                    <h3 class="motion-safe:hover:scale-[1.01] transition-all duration-250 ">
+                                        <a href="{{ url('telescope/queries') }}">▶ Telescopeでクエリを確認</a>
+                                    </h3>
                                 </div>
                             </div>
                         </div>
