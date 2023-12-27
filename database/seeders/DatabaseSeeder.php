@@ -45,16 +45,25 @@ class DatabaseSeeder extends Seeder
 
             $catalogs = Catalog::factory(1000)->create();
 
-//            foreach ($users as $user) {
-                for ($j = 1; $j <= 1000; $j++) {
-                    $items = Item::factory()
-                        // ->hasAttached($user)
-                        ->hasAttached($catalogs)
-                        ->has(SubItem::factory())
-                        ->create();
-                    $bar->advance();
-                }
-//            }
+            for ($j = 1; $j <= 999; $j++) {
+                $items = Item::factory()
+                    // ->hasAttached($user)
+                    ->hasAttached($catalogs)
+                    ->has(SubItem::factory())
+                    ->create();
+
+                $bar->advance();
+            }
+
+            $items = Item::factory()
+                // ->hasAttached($user)
+                ->hasAttached($catalogs)
+                ->has(SubItem::factory([
+                    'name' => 'natus@',
+                ]))
+                ->create();
+            $bar->advance();
+
             $bar->finish();
             $this->command->info('');
 
